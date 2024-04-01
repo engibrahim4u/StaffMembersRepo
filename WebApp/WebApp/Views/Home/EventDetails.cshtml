@@ -1,0 +1,22 @@
+﻿@model EventsVM
+@using System.Globalization
+@{ 
+    string header = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? Model.Header : Model.HeaderEn;
+    string details = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? Model.Content : Model.ContentEn;
+
+}
+<div class="container">
+    <h1 class="alert font-kawla">@header</h1>
+
+ 
+
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-9">
+             @Html.Raw(System.Web.HttpUtility.HtmlDecode(details))
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-3">
+            <img class="img-responsive" src="~/EventImages/@Model.Image" />
+        </div>
+
+    </div>
+</div>

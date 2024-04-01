@@ -1,0 +1,181 @@
+﻿
+
+@inject SignInManager<ApplicationUser> signInManager;
+@inject UserManager<ApplicationUser> UserManager;
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        @if (signInManager.IsSignedIn(User))
+        {
+
+
+
+
+            if (this.User.IsInRole("superAdmin") || this.User.IsInRole("admin"))
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@localizer["Configuration"] <span class="caret"></span></a>
+
+
+
+
+                </li>
+            }
+
+            if (this.User.IsInRole("superAdmin") || this.User.IsInRole("admin"))
+            {
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@localizer["Settings"] <span class="caret"></span></a>
+
+
+
+                    <ul class="dropdown-menu">
+
+
+
+                        <li>
+                            <a class="dropdown-item" asp-action="UserManage" asp-controller="Administration">@localizer["Users"]</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-action="ForgotPasswordAdmin" asp-controller="Account">@localizer["Reset User Password"]</a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" asp-action="Index" asp-controller="Events">@localizer["Events"]</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-action="Index" asp-controller="EventActivity">@localizer["Activities"]</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-action="Index" asp-controller="News">@localizer["News"]</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-action="Index" asp-controller="Issue">@localizer["Issues"]</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-action="Index" asp-controller="ContactMessages">@localizer["Message Replay"]</a>
+                        </li>
+
+                        @if (this.User.IsInRole("superAdmin"))
+                        {
+                            <li role="separator" class="divider"></li>
+
+                            <li>
+                                <a class="dropdown-item" asp-action="ListRoles" asp-controller="Administration">@localizer["Roles"]</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-action="Edit" asp-controller="SiteSetting">@localizer["Site Settings"]</a>
+                            </li>
+                        }
+
+
+                    </ul>
+
+                </li>
+              
+
+            }
+          
+           
+        }
+        else
+        {
+            <li>
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="glyphicon glyphicon-home font-40B "></span>
+                    @localizer["Home"]
+                </a>
+            </li>
+
+           
+
+
+            <li>
+                <a class="dropdown-item" asp-action="NewsList" asp-controller="Home">
+                    <span class="glyphicon glyphicon-file font-40B "></span>
+                    @localizer["News"]
+                </a>
+            </li>
+
+           
+            <li>
+                <a class="dropdown-item" asp-action="Contact" asp-controller="Home">
+                    <span class="glyphicon glyphicon-earphone font-40B "></span>
+                    @localizer["Contact Us"]
+                </a>
+            </li>
+        }
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+
+
+        @if (signInManager.IsSignedIn(User))
+        {
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="userName-font"> @Context.User.Identity.Name</span>
+                </a>
+                <ul class="dropdown-menu">
+                    @if (this.User.IsInRole("user"))
+                    {
+
+                        <li>
+                            <a class="dropdown-item" asp-action="UserProfile" asp-controller="Account">@localizer["Profile"]</a>
+                        </li>
+                    }
+                    <li>
+                        <a class="dropdown-item" asp-action="ChangePassword" asp-controller="Account">@localizer["Change Password"]</a>
+                    </li>
+                    @if (this.User.IsInRole("superAdmin") || this.User.IsInRole("admin") || this.User.IsInRole("supervisor"))
+                    {
+                        <li><a asp-area="" asp-controller="Account" asp-action="UpdatePersonalData"> @localizer["Update Personal Data"]</a></li>
+
+                    }
+                    <li>
+                        <form method="post" asp-controller="Account" asp-action="Logout">
+                            <button type="submit" class="navbar-link btn btn-link py-0" style="width:auto;color:red">
+                                @localizer["Signout"]
+
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+
+
+        }
+        else
+        {
+            <li>
+                <a asp-area="" asp-controller="Account" asp-action="Login">
+                    <span class="glyphicon glyphicon-user font-40B "></span>
+                    @localizer["Login"]
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Account" asp-action="Register">
+                    <span class="glyphicon glyphicon-plus font-40B "></span>
+                    @localizer["Register"]
+                </a>
+            </li>
+
+        }
+        <li class="dropdown langDrop">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                @*<span class="glyphicon glyphicon-transfer font-40B "></span>*@
+                <span class="glyphicon font-40B ">@localizer["عربي"]</span>
+
+                <span class="caret"></span>
+                @*<span class="glyphicon glyphicon-flag langSwitch"></span>*@
+                <img src="~/images/lang2.svg" style="width:20px" />
+            </a>
+            <ul class="dropdown-menu">
+                <li><a asp-area="" asp-route-returnUrl="@Context.Request.Path" asp-route-culture="en-US" asp-controller="Home" asp-action="SetLanguage">English</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a asp-area="" asp-route-returnUrl="@Context.Request.Path" asp-route-culture="ar-EG" asp-controller="Home" asp-action="SetLanguage">عربي</a></li>
+
+            </ul>
+        </li>
+    </ul>
+</div>

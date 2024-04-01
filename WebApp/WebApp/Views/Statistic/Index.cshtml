@@ -1,0 +1,14 @@
+﻿
+
+<div class="container">
+    <h3 class="alert alert-info text-center">احصائيات</h3>
+    <div class="row">
+      <a asp-action="TraineeCount" asp-controller="Statistic" class="btn btn-success">أعداد المتدربين</a>
+    </div>
+  
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+    }

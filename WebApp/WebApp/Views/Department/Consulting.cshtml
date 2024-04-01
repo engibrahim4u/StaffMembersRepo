@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = localizer["Consulting and Research Administration"];
+}
+
+@using System.Globalization
+
+<div class="container">
+    <div class="main-image-inside">
+        <img src="~/EventImages/journal_logo_no_bg.png" style="max-width:100%" />
+    </div>
+    <h1 class="font-kawla main-widget">
+        <span class="glyphicon glyphicon-folder-open font-40B "></span> @localizer["Consulting and Research Administration"]
+    </h1>
+
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item" id="bodyData">
+                @if (CultureInfo.CurrentCulture.TextInfo.IsRightToLeft)
+                {
+                    <div>
+                        <ul class="font-18">
+                            <li>
+                                <h4>
+                                    التعاون الشامل والمباشر مع الوزارات والمؤسسات التي لديها مشاكل علمية وعملية وتقديم الحلول المناسبة لها على أسس علمية مدروسة معتمدة على البحوث العلمية بالاستعانة بعلماء الجامعة كل في تخصصه.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    تقديم الاستشارات للوزارات والمؤسسات التي تحتاج الإلمام بموضوع معين أو الحاجة للتوصل لحل مشكلة أو ظاهرة محددة.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    تقديم كافة الاستشارات واجراء البحوث والدراسات التطبيقية اللازمة لمنظمات الأعمال لتطويرها وتأهيلها لمواجهة المتغيرات العالمية والاقليمية.
+                                </h4>
+                            </li>
+                           
+                        </ul>
+
+                    </div>
+                }
+                else
+                {
+            <div>
+                <ul class="font-18">
+                    <li>
+                        <h4>
+                            التعاون الشامل والمباشر مع الوزارات والمؤسسات التي لديها مشاكل علمية وعملية وتقديم الحلول المناسبة لها على أسس علمية مدروسة معتمدة على البحوث العلمية بالاستعانة بعلماء الجامعة كل في تخصصه.
+                        </h4>
+                    </li>
+                    <li>
+                        <h4>
+                            تقديم الاستشارات للوزارات والمؤسسات التي تحتاج الإلمام بموضوع معين أو الحاجة للتوصل لحل مشكلة أو ظاهرة محددة.
+                        </h4>
+                    </li>
+                    <li>
+                        <h4>
+                            تقديم كافة الاستشارات واجراء البحوث والدراسات التطبيقية اللازمة لمنظمات الأعمال لتطويرها وتأهيلها لمواجهة المتغيرات العالمية والاقليمية.
+                        </h4>
+                    </li>
+
+                </ul>
+
+            </div>
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>

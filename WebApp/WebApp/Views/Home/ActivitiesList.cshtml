@@ -1,0 +1,45 @@
+﻿@model List<EventsVM>
+@using System.Globalization
+@{
+    string title;
+    bool display;
+    ViewData["Title"] = localizer["All Activities"];
+
+    int nr = 0;
+    Pager pager = new Pager();
+    int pageNum = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNum = pager.CurrentPage;
+        nr = (pager.CurrentPage - 1) * pager.PageSize;
+    }
+}
+@if (Model.Any())
+{
+    <h1 class="font-kawla main-widget">  <span class="glyphicon glyphicon-list-alt font-40B "></span>  @localizer["All Activities"]</h1>
+
+
+
+    <div class="row">
+        <ul class="event-list">
+            @foreach (var row in Model)
+            {
+                display = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? row.DisplayInHome : row.DisplayInHomeEn;
+
+
+                var header = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? row.Header : row.HeaderEn;
+                if (string.IsNullOrEmpty(header) || !display) continue;
+
+                <li>
+                    <a asp-action="ActivityDetails" asp-controller="Home" asp-route-id="@row.Id">@header</a>
+                </li>
+            }
+        </ul>
+
+
+
+    </div>
+
+}
+<partial name="_PagerPartial" model="@pager" />

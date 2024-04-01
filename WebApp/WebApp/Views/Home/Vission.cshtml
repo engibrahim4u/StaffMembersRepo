@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = localizer["Vission"];
+}
+
+@using System.Globalization
+
+<div class="container">
+    <div class="main-image-inside">
+        <img src="~/EventImages/journal_logo_no_bg.png" style="max-width:100%" />
+    </div>
+    <h1 class="font-kawla main-widget">
+        <span class="glyphicon glyphicon-folder-open font-40B "></span> @localizer["Vission"]
+    </h1>
+
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item" id="bodyData">
+                @if (CultureInfo.CurrentCulture.TextInfo.IsRightToLeft)
+                {
+                    <div>
+                        <ul class="font-18">
+                            <li>
+                                <h4>
+                                    يتطلع المركز الى التميز والريادة العلمية والمهنية محلياً واقليمياً في المجالات الاستشارية والبحثية وتنمية المهارات واعداد القادة وتطوير الأداء والتوعية بالقضايا الاستراتيجية.
+                                </h4>
+                            </li>
+                            
+                        </ul>
+
+                    </div>
+                }
+                else
+                {
+            <div>
+                <ul class="font-18">
+                    <li>
+                        <h4>
+                            يتطلع المركز الى التميز والريادة العلمية والمهنية محلياً واقليمياً في المجالات الاستشارية والبحثية وتنمية المهارات واعداد القادة وتطوير الأداء والتوعية بالقضايا الاستراتيجية.
+                        </h4>
+                    </li>
+                   
+                </ul>
+
+            </div>
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>

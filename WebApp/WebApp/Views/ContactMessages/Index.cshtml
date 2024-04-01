@@ -1,0 +1,70 @@
+﻿@model List<ContactUsVM>
+
+@{
+    ViewData["Title"] = "الرسائل والاستفسارات للموقع";
+
+    int nr = 0;
+    Pager pager = new Pager();
+    int pageNum = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNum = pager.CurrentPage;
+        nr = (pager.CurrentPage - 1) * pager.PageSize;
+    }
+    string cssIsRead = "bg-info";
+}
+<h2 class="font-kawla main-widget">الرسائل والاستفسارات للموقع</h2>
+
+<div class="container">
+    @if (Model.Any())
+    {
+
+        <table class="table table-responsive ">
+            <tr class="bg-primary">
+                <th class="text-center">#</th>
+                <th class="text-center">عنوان الرسالة</th>
+                <th class="text-center">تم الرد</th>
+
+                <th class="text-center"></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                if (item.IsRead)
+                    cssIsRead = "";
+                else
+                    cssIsRead = "bg-info";
+                nr++;
+                <tr class="@cssIsRead ">
+                    <td class="text-center">@nr</td>
+                    @*<td class="text-center">@item.Code</td>*@
+                    <td class="text-center">@item.Title</td>
+                    <td class="text-center">
+                        @if (item.IsReplayed)
+                        {
+                            <span class="text-success">نعم</span>
+
+                        }
+                        else
+                        {
+                            <span class="text-danger">لا</span>
+
+                        }
+                    </td>
+
+                    <td class="text-center">
+                        <a asp-action="Info" asp-route-pag="@item.PageNumber" asp-route-id="@item.ReferenceCode" class="btn btn-success">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h5 class="text-center text-danger">لا يوجد بيانات</h5>
+    }
+
+</div>
+<partial name="_PagerPartial" model="@pager" />

@@ -1,0 +1,237 @@
+﻿
+/* last style */
+
+@font-face {
+    font-family: 'Almadinah';
+    src: url('Almadinah.eot?#iefix') format('embedded-opentype'), url('Almadinah.otf') format('opentype'), url('Almadinah.woff') format('woff'), url('Almadinah.ttf') format('truetype'), url('Almadinah.svg#Almadinah') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Almadinah';
+    src: url('Almadinah-bold.eot?#iefix') format('embedded-opentype'), url('Almadinah-bold.otf') format('opentype'), url('Almadinah-bold.woff') format('woff'), url('Almadinah-bold.ttf') format('truetype'), url('Almadinah-bold.svg#Almadinah-bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Almadinah';
+    src: url('Almadinah.eot?#iefix') format('embedded-opentype'), url('Almadinah-light.otf') format('opentype'), url('Almadinah-light.woff') format('woff'), url('Almadinah-light.ttf') format('truetype'), url('Almadinah-light.svg#Almadinah-light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, * {
+    font-family: 'Almadinah';
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Almadinah';
+    font-weight: 100;
+    font-size: 26px;
+}
+label, .form-control, span {
+    font-size: 20px;
+}
+a {
+    font-family: 'Almadinah';
+    font-size: 24px !important;
+    font-size: 14px !important;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    font-weight: bold;
+    font-size: 26px !important;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    font-size: 26px !important;
+}
+
+.main-widget .glyphicon.font-40B {
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 0;
+}
+.boxIssueCount .glyphicon {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.text-left-im {
+    text-align: left
+}
+
+
+
+
+    footer span {
+        font-size: 30px !important;
+    }
+
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    color: #117302d6;
+    background-color: transparent;
+    border-color: transparent;
+    padding: 0;
+    font-size: 34px;
+}
+
+.font-16, .main-widget {
+    font-size: 30px;
+}
+.main-widget {
+    font-weight: bold;
+}
+
+
+.boxIssueList p {
+    font-weight: 100;
+}
+.login-style .font-16 {
+    font-size: 22px;
+}
+.btn {
+    font-size: 24px;
+}
+.login-style label, .form-control.font-16,label {
+    font-size: 24px;
+}
+.boxHomePageNews h5, .boxHomePageNews h3 {
+    text-align: right;
+}
+.font-kawla {
+    font-size: 15px;
+}
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff!important;
+    font-size: 28px !important;
+}
+.nav .glyphicon.langSwitch {
+    font-size: 24px !important;
+}
+.main-widget {
+    font-size: 34px;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    font-weight: 400;
+}
+.link-font-orangered {
+    font-size: 20px !important;
+}
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, *, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,a {
+    font-family: 'Changa', sans-serif
+}
+.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    font-size: 15px !important;
+    font-weight: normal;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    font-weight: normal;
+    padding: 5px 20px;
+    border-bottom: 1px solid #ddd;
+}
+.main-widget {
+    font-size: 26px;
+    font-weight: 800;
+}
+.font-kawla {
+    font-size: 15px;
+}
+footer span {
+    font-size: 18px !important;
+}
+label, .form-control, span {
+    font-size: 18px !important;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 0;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-size: 16px;
+}
+.body-content ul li {
+    font-size: 16px;
+}
+.link-font-orangered {
+    font-size: 14px !important;
+}
+.font-16, .main-widget {
+    font-size: 20px;
+}
+.btn {
+    font-size: 16px;
+}
+.form-control {
+    font-size: 12px !important;
+}
+.carousel-control.right {
+    right: -45px !important;
+}
+.carousel-control.left {
+    left: -45px !important;
+}
+
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .navbar-inverse .navbar-nav > li > a {
+        font-size: 12px !important;
+        padding: 35px 5px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .navbar-inverse .navbar-nav > li > a {
+        font-size: 14px !important;
+        padding: 35px 7px;
+    }
+}
+.nav .glyphicon {
+    font-size: 13px !important;
+}
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, *, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, a {
+    font-family: 'DroidArabicKufiRegular';
+    font-weight: normal;
+    font-style: normal;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    font-size: 15px !important;
+}
+.main-widget {
+    font-size: 16px !important;
+}
+
+.carousel-control.left {
+    /* left: -45px !important; */
+    left: -50% !important;
+}
+.carousel-control.right {
+    right: -50% !important;
+}
+.carousel-control {
+    bottom: 200px;
+}
+.font-kawla {
+    text-align: right;
+}
+@media(max-width:600px) {
+    .carousel-control {
+        bottom: 80px;
+    }
+    .nav .glyphicon.font-40B{display:none}
+    .navbar-inverse .navbar-nav > li > a {
+        padding: 10px 20px;
+    }
+    .caret{position:static}
+    footer .mobileBlocky {
+        display: block !important;
+    }
+}

@@ -1,0 +1,140 @@
+﻿@*@model List<PersonalDataVM>
+    *@
+
+    @model IEnumerable<PersonalDataVM>
+        @{
+        int nr = 1;
+        }
+
+        @if (Model.Count() > 0)
+        {
+        <table class="table" id="tblList">
+            <thead>
+                <tr class="bg-info text-center">
+                    <th>
+
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullNameAr)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NationalId)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile)
+                    </th>
+
+                    <th></th>
+                    @if (User.IsInRole("printCertificate"))
+                    {
+                        <th>كلمة سر الاختبار</th>
+                    }
+                    @if (User.IsInRole("printCertificate"))
+                    {
+                        <th>الافادة</th>
+
+                    }
+                    @if (User.IsInRole("superAdmin"))
+                    {
+                        <th></th>
+                    }
+                    @if (User.IsInRole("printCertificate"))
+                    {
+                        <th>شهاداة اضافية</th>
+                    }
+                   
+
+                    </tr>
+            </thead>
+            <tbody id="tblContent">
+                @foreach (var item in Model)
+                {
+                string css = "alert-new";
+                if (item.AdminDataConfirmed == false && item.TraineeDataConfirmed==true) { css = "alert-warning"; }
+                if (item.AdminDataConfirmed == false && item.TraineeDataConfirmed == false) { css = "alert-danger"; }
+
+                if (item.AdminDataConfirmed == true && item.TraineeDataConfirmed == true) { css = "alert-success"; }
+                <tr class="@css">
+                    <td>
+                        @(nr++)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullNameAr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NationalId)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mobile)
+                    </td>
+
+                    <td>
+                        <a asp-action="TraineeInfoDetails" asp-controller="Search" class="btn btn-success" asp-route-id="@item.EncryptedId"><span class="glyphicon glyphicon-info-sign"></span></a>
+
+                    </td>
+                    @if (User.IsInRole("printCertificate"))
+                    {
+                        <td>
+
+                            <a asp-action="PrintTraineeUserPassword" asp-controller="Report" asp-route-id="@item.EncryptedId" target="_blank" class="btn btn-secondary btn-block"><span class="glyphicon glyphicon-print"></span></a>
+
+
+                        </td>
+                        @if (User.IsInRole("printCertificate"))
+                        {
+                            <td>
+
+                                @if (item.ExamPassed)
+                                {
+                                    <a asp-action="PrintTraineeCertificate" asp-controller="Report" asp-route-id="@item.EncryptedId" target="_blank" class="btn btn-secondary btn-block"><span class="glyphicon glyphicon-print"></span></a>
+
+                                }
+
+
+                            </td>
+
+                        }
+                        @if (User.IsInRole("superAdmin") && !item.TraineeDataConfirmed)
+                        {
+                            <td>
+                                <form method="post" asp-action="DeleteTrainee" asp-route-id="@item.EncryptedId">
+                                    <span style="display:none" id="confirmDeleteSpan_@nr" onclick="ConfirmDelete('@nr',false)">
+                                        <span>هل انت متاكد من حذف المستخدم؟</span>
+                                        <button type="submit" class="btn btn-danger">نعم</button>
+                                        <a href="#" class="btn btn-primary">لا</a>
+                                    </span>
+                                    <span id="deleteSpan_@nr" onclick="ConfirmDelete('@nr',true)">
+                                        <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                    </span>
+                                </form>
+                            </td>
+                        }
+                        else
+                        {
+                            <td></td>
+                        }
+                    }
+                    @if (User.IsInRole("printCertificate"))
+                    {
+                        <td>
+
+                            @if (item.ExamPassed)
+                            {
+                                <a asp-action="TraineeExtraCertificates" asp-controller="Search" asp-route-id="@item.EncryptedId" class="btn btn-secondary btn-block"><span class="glyphicon glyphicon-eye-open"></span></a>
+                            }
+
+                        </td>
+                    }
+
+                </tr>
+                }
+            </tbody>
+        </table>
+        }
+        else
+        {
+        <h6 class="alert alert-danger text-center">لا يوجد بيانات</h6>
+        }
+

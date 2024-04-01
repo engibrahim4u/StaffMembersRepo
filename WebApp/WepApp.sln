@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{C18797B4-A0F4-4405-9F32-B6E59E1A7850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDLCDesign", "..\RDLCDesign\RDLCDesign.csproj", "{948EB819-1B22-4E2B-AADF-BD280F7FEEFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C18797B4-A0F4-4405-9F32-B6E59E1A7850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18797B4-A0F4-4405-9F32-B6E59E1A7850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18797B4-A0F4-4405-9F32-B6E59E1A7850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C18797B4-A0F4-4405-9F32-B6E59E1A7850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{948EB819-1B22-4E2B-AADF-BD280F7FEEFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{948EB819-1B22-4E2B-AADF-BD280F7FEEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{948EB819-1B22-4E2B-AADF-BD280F7FEEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{948EB819-1B22-4E2B-AADF-BD280F7FEEFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EAF2A1BA-9200-41E9-AB35-9DA87CDCB5AE}
+	EndGlobalSection
+EndGlobal

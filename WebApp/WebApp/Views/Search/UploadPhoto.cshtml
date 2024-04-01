@@ -1,0 +1,185 @@
+﻿@model ChangeImageVM
+@{
+    // Layout = null;
+}
+
+<div class="container">
+    <h3 class="alert alert-info text-center">@localizer["قص وتعديل الصورة الشخصية"]</h3>
+    <div id="divCroped">
+        <h5 class="alert alert-warning text-center">قم باختيار الملف ثم اضغط على الجزء المراد حفظه من الصورة بعد تحميلها , سوف يظهر زر اقتصاص باللون الأخضر قم بالضغط عليه سوف تعرض الصورة المقصوصة اعلى الصورة الاصلية قم بالضغط على الزر الأحمر (حفظ الصورة)  وسف يتم حفظ الصورة المقصوصة </h5>
+        <form method="post" enctype="multipart/form-data" asp-controller="Search" asp-action="SavePhoto">
+
+            <input type="button" id="btnCrop" value="اقتصاص" style="display: none" class="btn btn-success" />
+            <input type="submit" id="btnUpload" value="حفظ الصورة" style="display: none" class="btn btn-danger" />
+            <table border="0" cellpadding="0" cellspacing="5">
+                <tr>
+
+                    <td align="center">
+                        <canvas id="canvas" height="5" width="5"></canvas>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img id="Image1" src="~/UploadedImages/@Model.TraineePhotoImage" alt="" />
+
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <input type="hidden" name="imgX1" id="imgX1" />
+            <input type="hidden" name="imgY1" id="imgY1" />
+            <input type="hidden" name="imgWidth" id="imgWidth" />
+            <input type="hidden" name="imgHeight" id="imgHeight" />
+            <input type="hidden" name="imgCropped" id="imgCropped" />
+            @*<input type="hidden" name="TraineeNationalIdImage" d="TraineeNationalIdImage" value="@Model.TraineeNationalIdImage" />
+            <input type="hidden" name="TraineePhotoImage" id="TraineePhotoImage" value="@Model.TraineePhotoImage" />*@
+            <input type="hidden" name="traineeId" id="traineeId" value="@Model.TraineeId" />
+
+
+        </form>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-5"></div>
+            <div class="col-md-4">
+                <form method="post" enctype="multipart/form-data" asp-controller="Search" asp-action="RotatePhotoImage">
+                    <input type="hidden" name="NeededImageToRotate" id="NeededImageToRotate" value="@Model.TraineePhotoImage" />
+                    <input type="hidden" name="traineeIdToRotate" id="traineeIdToRotate" value="@Model.TraineeId" />
+
+                    <input type="submit" id="btnUploadRotate" value="تدوير الصورة 90 درجة" class="btn btn-danger" />
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-9">
+        </div>
+        <div class="col-md-3">
+            <a asp-action="TraineeInfoDetails" class="btn btn-primary" asp-route-id="@Model.TraineeId">@localizer["Back"]</a>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/jquery1.8.3.min.js"></script>
+    <script src="~/js/JCorpImage.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#Image1').Jcrop({
+                onChange: SetCoordinates,
+                onSelect: SetCoordinates
+            });
+            $('#StudentNationalIdUpFile').change(function () {
+                $('#Image11').hide();
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#Image11').show();
+                    $('#Image11').attr("src", e.target.result);
+                }
+                reader.readAsDataURL($(this)[0].files[0]);
+            });
+
+            $('.custom-file-input').on("change", function () {
+                debugger
+                // Get uploaded file extension
+                var extension = $(this).val().split('.').pop().toLowerCase();
+
+                // Create array with the files extensions that we wish to upload
+
+                //var validFileExtensions = ['pdf'];//
+                var validFileExtensions = ['jpg', 'png', 'jpeg'];
+
+                //Check file extension in the array.if -1 that means the file extension is not in the list.
+                if ($.inArray(extension, validFileExtensions) == -1) {
+                    $('#fileErrorMessage').text("مسموح فقط ملفات png,jpg").show();
+                    alert("مسموح فقط ملفات png,jpg");
+
+                    // Clear fileuload control selected file
+                    $(this).replaceWith($(this).val('').clone(true));
+
+                    //Disable Submit Button
+                    //$('#btnSubmit').prop('disabled', true);
+                }
+                else {
+                    //alert($(this).get(0).files[0].size);
+                    // Check and restrict the file size to 32 KB.
+                    if ($(this).get(0).files[0].size > (5024 * 1024)) {
+                        $('#fileErrorMessage').text("حجم الملف كبير اقصى حجم للملف 3MB").show();
+                        alert("حجم الملف كبير اقصى حجم للملف 3MB");
+                        // Clear fileuload control selected file
+                        $(this).replaceWith($(this).val('').clone(true));
+
+                        //Disable Submit Button
+                        //$('#btnSubmit').prop('disabled', true);
+                    }
+                    else {
+                        //Clear and Hide message span
+                        $('#fileErrorMessage').text('').hide();
+
+                        //Enable Submit Button
+                        //  $('#btnSubmit').prop('disabled', false);
+                    }
+                }
+            });
+            $('#FileUpload1').change(function () {
+                $('#Image1').hide();
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#Image1').show();
+                    $('#Image1').attr("src", e.target.result);
+                    $('#Image1').Jcrop({
+                        onChange: SetCoordinates,
+                        onSelect: SetCoordinates
+                    });
+                }
+                reader.readAsDataURL($(this)[0].files[0]);
+                $('#FileUpload1').hide();
+            });
+
+            $('#btnCrop').click(function () {
+                var x1 = $('#imgX1').val();
+                var y1 = $('#imgY1').val();
+                var width = $('#imgWidth').val();
+                var height = $('#imgHeight').val();
+                var canvas = $("#canvas")[0];
+                var context = canvas.getContext('2d');
+                var img = new Image();
+                img.onload = function () {
+                    canvas.height = height;
+                    canvas.width = width;
+                    context.drawImage(img, x1, y1, width, height, 0, 0, width, height);
+                    $('#imgCropped').val(canvas.toDataURL());
+                    $('#btnUpload').show();
+                };
+                img.src = $('#Image1').attr("src");
+            });
+            $("#chkNotCroped").change(function () {
+                var chkNotCroped = document.getElementById("chkNotCroped");
+                if (chkNotCroped.checked) {
+                    $("#divNotCroped").hide();
+                    $("#divCroped").show();
+                }
+                else {
+                    $("#divNotCroped").show();
+                    $("#divCroped").hide();
+                }
+            });
+
+        });
+        function SetCoordinates(c) {
+            $('#imgX1').val(c.x);
+            $('#imgY1').val(c.y);
+            $('#imgWidth').val(c.w);
+            $('#imgHeight').val(c.h);
+            $('#btnCrop').show();
+        };
+    </script>
+}
+

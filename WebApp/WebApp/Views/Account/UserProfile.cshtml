@@ -1,0 +1,274 @@
+﻿@model RegisterVM
+
+@{
+
+    ViewData["Title"] = localizer[" User Profile"];
+}
+
+@if (ViewBag.Updated != null && ViewBag.Updated == true)
+{
+                <h5 class="alert alert-success text-center">@localizer["Update Successful"]</h5> 
+ }
+<div class="row" >
+    @if (ViewBag.ProfileData != null && ViewBag.ProfileData == true)
+    {
+    <form asp-action="UserProfile">
+        <input type="hidden" asp-for="JournalId" />
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ConfirmData" />
+
+
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger col-md-10"></div>
+            <div class="col-md-1"></div>
+
+        </div>
+
+
+
+        <div id="registerForm" class="row">
+            <div class="col-md-1 col-sm-2 col-xs-12"></div>
+            <div class="col-md-7 col-sm-6 col-xs-12">
+               
+                <ul class="list-group">
+                    <li class="list-group-item active" id="RegisterStudent">@localizer["Personal and Academic Information"] </li>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <span class="font-16 font-weight-bold"> @Model.Email</span>
+                            <a asp-action="UpdateEmail" asp-controller="Account"><span class="glyphicon glyphicon-pencil btn btn-success fontTimes"></span></a>
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Mobile" class="control-label"></label>
+                            <span class="font-16 font-weight-bold"> @Model.Mobile</span>
+                            <a asp-action="UpdateMobile" asp-controller="Account"><span class="glyphicon glyphicon-pencil btn btn-success"></span></a>
+
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" class="form-control font-16" placeholder="@localizer["First Name"]" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FatherName" class="control-label"></label>
+                            <input asp-for="FatherName" class="form-control font-16" placeholder="@localizer["Father Name"]" />
+                            <span asp-validation-for="FatherName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="GrandFatherName" class="control-label"></label>
+                            <input asp-for="GrandFatherName" class="form-control font-16" placeholder="@localizer["Grand Father Name"]" />
+                            <span asp-validation-for="GrandFatherName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FamilyName" class="control-label"></label>
+                            <input asp-for="FamilyName" class="form-control font-16" placeholder="@localizer["Family Name"]" />
+                            <span asp-validation-for="FamilyName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="University" class="control-label"></label>
+                            <input asp-for="University" class="form-control font-16" placeholder="@localizer["University Name"]" />
+                            <span asp-validation-for="University" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="AcademicDegreeId" class="control-label"></label>
+
+                            <select asp-for="AcademicDegreeId" class="form-control" asp-items="@(new SelectList(Model.AcademicDegrees, "Id", "Name"))">
+                                <option selected="selected" value=""> @localizer["Choose"] </option>
+                            </select>
+                            <span asp-validation-for="AcademicDegreeId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ScientificLevelId" class="control-label"></label>
+
+                            <select asp-for="ScientificLevelId" class="form-control" asp-items="@(new SelectList(Model.ScientificLevels, "Id", "Name"))">
+                                <option selected="selected" value=""> @localizer["Choose"] </option>
+                            </select>
+                            <span asp-validation-for="ScientificLevelId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="GSpeciality" class="control-label"></label>
+                            <input asp-for="GSpeciality" class="form-control font-16" placeholder="@localizer["General Specialization"]" />
+                            <span asp-validation-for="GSpeciality" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MSpeciality" class="control-label"></label>
+                            <input asp-for="MSpeciality" class="form-control font-16" placeholder="@localizer["Specialization"]" />
+                            <span asp-validation-for="MSpeciality" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CountryId" class="control-label"></label>
+
+                            <select asp-for="CountryId" class="form-control" asp-items="@(new SelectList(Model.Countries, "Id", "Name"))">
+                                <option selected="selected" value=""> @localizer["Choose"] </option>
+                            </select>
+                            <span asp-validation-for="CountryId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="LanguageId" class="control-label"></label>
+
+                            <select asp-for="LanguageId" class="form-control" asp-items="@(new SelectList(Model.Languages, "Id", "Name"))">
+                                <option selected="selected" value=""> @localizer["Choose"] </option>
+                            </select>
+                            <span asp-validation-for="LanguageId" class="text-danger"></span>
+                        </div>
+
+                    </li>
+                </ul>
+                @if (ViewBag.BankData != null && ViewBag.BankData == true)
+                {
+                    <ul class="list-group">
+                        <li class="list-group-item active" id="RegisterStudent">@localizer["Bank Information"] </li>
+                        <li class="list-group-item">
+                            <div class="form-group">
+                                <label asp-for="IBAN" class="control-label"></label>
+                                <input asp-for="IBAN" class="form-control font-16" placeholder="@localizer["IBAN"]" />
+                                <span asp-validation-for="IBAN" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="SwiftCode" class="control-label"></label>
+                                <input asp-for="SwiftCode" class="form-control font-16" placeholder="@localizer["Swift Code"]" />
+                                <span asp-validation-for="SwiftCode" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="BranchCode" class="control-label"></label>
+                                <input asp-for="BranchCode" class="form-control font-16" placeholder="@localizer["Branch Code"]" />
+                                <span asp-validation-for="BranchCode" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Bank" class="control-label"></label>
+                                <input asp-for="Bank" class="form-control font-16" placeholder="@localizer["Bank Name"]" />
+                                <span asp-validation-for="Bank" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="BankCity" class="control-label"></label>
+                                <input asp-for="BankCity" class="form-control font-16" placeholder="@localizer["Bank City"]" />
+                                <span asp-validation-for="BankCity" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="POB" class="control-label"></label>
+                                <input asp-for="POB" class="form-control font-16" placeholder="@localizer["POB"]" />
+                                <span asp-validation-for="POB" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="NameInBank" class="control-label"></label>
+                                <input asp-for="NameInBank" class="form-control font-16" placeholder="@localizer["Name In Bank(Arabic)"]" />
+                                <span asp-validation-for="NameInBank" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="EnNameInBank" class="control-label"></label>
+                                <input asp-for="EnNameInBank" class="form-control font-16" placeholder="@localizer["Name In Bank(English)"]" />
+                                <span asp-validation-for="EnNameInBank" class="text-danger"></span>
+                            </div>
+
+
+                        </li>
+
+                    </ul>
+
+                }
+
+                <div class="form-group">
+                    <input type="checkbox" id="chkConfirm" />
+                    <span class="font-16 offset-1">
+                        @localizer["Click I'm Sure Reviewing my Data to Enable Save Button"]
+                    </span>
+                    <span asp-validation-for="ConfirmData" class="text-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="@localizer["Save"]" id="btnSave" class="btn btn-danger" disabled />
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-12">
+
+            </div>
+        </div>
+    </form>
+    }
+    </div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js" type="text/javascript"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/blitzer/jquery-ui.css"
+          rel="Stylesheet" type="text/css" />
+    <script>
+        $(document).ready(function () {
+            $("#RegisterType").change(function () {
+                var registerType = $("#RegisterType").val();
+                $("#loginInfo").hide();
+                $("#bankInfo").hide();
+                $("#personalInfo").hide();
+                if (registerType != "") {
+                    $("#loginInfo").show();
+                    $("#personalInfo").show();
+
+                }
+                if (registerType == "Auditor" || registerType == "Both") {
+                    $("#bankInfo").show();
+
+                }
+
+            });
+
+            $("#University").autocomplete({
+
+                source: function (request, response) {
+                    debugger
+                    $.ajax({
+                        url: '/Account/UniversityNames/',
+                        data: { "prefix": request.term },
+                        type: "POST",
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return item;
+                            }))
+                        },
+                        error: function (response) {
+                            //alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            //alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    debugger
+                    //$("#StudentId").val(i.item.val);
+                    $("#University").val(i.item.label);
+                   
+
+                },
+                minLength: 1
+            });
+            $("#chkConfirm").change(function () {
+                var chkConfirm = document.getElementById("chkConfirm");
+                var btnSave = document.getElementById("btnSave");
+                if (chkConfirm.checked == true) {
+                    //$("#btnSave").show();
+                    btnSave.disabled = false;
+                }
+                else {
+                    btnSave.disabled = true;
+
+                    //$("#btnSave").hide();
+                }
+            });
+
+        })
+    </script>
+
+}

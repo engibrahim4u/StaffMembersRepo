@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Academic Degree" xml:space="preserve">
+    <value>الدرجة العلمية</value>
+  </data>
+  <data name="Arabic and English Characters Only (3-250)" xml:space="preserve">
+    <value>حرف عربي وانجليزي فقط من 3-250 حرف</value>
+  </data>
+  <data name="Arabic and English Characters Only (5-250)" xml:space="preserve">
+    <value>حرف عربي وانجليزي فقط من 5-250 حرف</value>
+  </data>
+  <data name="Arabic and English Charcters Only (2-25)" xml:space="preserve">
+    <value>حرف عربي وانجليزي فقط من 2-25 حرف</value>
+  </data>
+  <data name="Arabic Letters Only (8-150)" xml:space="preserve">
+    <value>حروف عربي فقط</value>
+  </data>
+  <data name="Author Instructions" xml:space="preserve">
+    <value>شروظ ان تكون باحث</value>
+  </data>
+  <data name="Bank City" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="Bank Name" xml:space="preserve">
+    <value>اسم البنك</value>
+  </data>
+  <data name="Branch Code" xml:space="preserve">
+    <value>رقم الفرع</value>
+  </data>
+  <data name="Confirm Password" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>البلد</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Family Name" xml:space="preserve">
+    <value>اسم العائلة</value>
+  </data>
+  <data name="Father Name" xml:space="preserve">
+    <value>اسم الأب</value>
+  </data>
+  <data name="First Name" xml:space="preserve">
+    <value>الاسم الأول</value>
+  </data>
+  <data name="From 10 to 100 Characters" xml:space="preserve">
+    <value>النص المدخل لا يقل عن 10 احرف ولايزيد عن  100 حرف</value>
+  </data>
+  <data name="Full Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="General Specialization" xml:space="preserve">
+    <value>التخصص العام</value>
+  </data>
+  <data name="Grand Father Name" xml:space="preserve">
+    <value>اسم الجد</value>
+  </data>
+  <data name="IBAN" xml:space="preserve">
+    <value>الأيبان (IBAN)</value>
+  </data>
+  <data name="Input Error" xml:space="preserve">
+    <value>ادخال خاطئ</value>
+  </data>
+  <data name="Invalid Username or Password" xml:space="preserve">
+    <value>خطا في اسم المستخدم او كلمة المرور</value>
+  </data>
+  <data name="Journal" xml:space="preserve">
+    <value>المجلة</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>لغة المراسلة</value>
+  </data>
+  <data name="Like(POB 123456 Town Name 123456)" xml:space="preserve">
+    <value> مثال (ص.ب 123456 المدينة 123456)</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>الجوال</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم  ثلاثي او رباعي </value>
+  </data>
+  <data name="Name in Arabic or English" xml:space="preserve">
+    <value>كلمات عربي أو انجليزي</value>
+  </data>
+  <data name="Name In Bank(Arabic)" xml:space="preserve">
+    <value>الاسم في البنك باللغة العربية</value>
+  </data>
+  <data name="Name In Bank(English)" xml:space="preserve">
+    <value>الاسم في البنك باللغة الانجليزية</value>
+  </data>
+  <data name="Name must be at least three words English or Arabic Characters" xml:space="preserve">
+    <value>الاسم  ثلاثي و رباعي حروف عربي او انجليزي فقط</value>
+  </data>
+  <data name="Name must be English Characters" xml:space="preserve">
+    <value>الاسم باللغة الانجليزية بالبنك</value>
+  </data>
+  <data name="Not Email Address" xml:space="preserve">
+    <value>ليس بريد إلكتروني</value>
+  </data>
+  <data name="Numbers and English Characters Only (2-50)" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Numbers and English Characters Only (5-50)" xml:space="preserve">
+    <value>حروف انجليزي وارقام فقط</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Password and Confirm Password not Same" xml:space="preserve">
+    <value>كلمة المرور غير متطابقة</value>
+  </data>
+  <data name="Password contain  8-12 English Characters and digits and special Characters like @$_.%#&amp;" xml:space="preserve">
+    <value>كلمة المرور تتكون من 8 الي 12 حروف او ارقام او احد الحروف الخاصة @$_.%#&amp; فقط</value>
+  </data>
+  <data name="Password contain English Characters and digits and special Characters like @$_.%#&amp;" xml:space="preserve">
+    <value>كلمة المرور تتكون من 6 الي 12 حروف او ارقام او احد الحروف الخاصة @$_.%#&amp; فقط</value>
+  </data>
+  <data name="Passwords must have at least one lowercase ('a'-'z')." xml:space="preserve">
+    <value>كلمة المور يجب ان تحتوي حرف صغير a-z</value>
+  </data>
+  <data name="POB" xml:space="preserve">
+    <value>صندوق البريد</value>
+  </data>
+  <data name="Registraion Type" xml:space="preserve">
+    <value>نوع التسجيل </value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>مطلوب</value>
+  </data>
+  <data name="Reviewer Instructions" xml:space="preserve">
+    <value>شروط ان تكون محكم</value>
+  </data>
+  <data name="Scientific Level" xml:space="preserve">
+    <value>المستوى العلمي</value>
+  </data>
+  <data name="Specialization" xml:space="preserve">
+    <value>التخصص الدقيق</value>
+  </data>
+  <data name="Study Level" xml:space="preserve">
+    <value>المرحلة الدراسية</value>
+  </data>
+  <data name="Swift Code" xml:space="preserve">
+    <value>السويف كود للبنك</value>
+  </data>
+  <data name="Text must not more than 50 Characters" xml:space="preserve">
+    <value>النص المدخل لايزيد عن  50 حرف</value>
+  </data>
+  <data name="University" xml:space="preserve">
+    <value>جهة العمل</value>
+  </data>
+</root>

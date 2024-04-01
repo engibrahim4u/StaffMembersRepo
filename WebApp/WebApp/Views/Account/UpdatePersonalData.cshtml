@@ -1,0 +1,64 @@
+﻿@model PersonalDataVM
+
+@{
+    ViewData["Title"] = localizer["Update Personal Data"];
+
+}
+
+
+
+<h4>@localizer["Update Personal Data"]</h4>
+<hr />
+@if (ViewBag.Updated != null)
+{
+    <h4 class="alert alert-success text-center">@ViewBag.Updated</h4>
+}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form asp-action="UpdatePersonalData">
+            <input type="hidden" asp-for="UserName" />
+            <input type="hidden" asp-for="Mobile" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <div class="row">
+                    <input asp-for="UserName" class="form-control col-md-7" disabled />
+                    <a asp-action="UpdateEmail" class="col-md-5">@localizer["Edit User Name"]</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label"></label>
+                <div class="row">
+                    <input asp-for="Mobile" class="form-control col-md-7" disabled />
+                    <a asp-action="UpdateMobile" class="col-md-5">@localizer["Edit Mobile"]</a>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="@localizer["Update"]" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">@localizer["Cancel"]</a>
+
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

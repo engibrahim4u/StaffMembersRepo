@@ -1,0 +1,112 @@
+﻿@model LoginVM
+
+@{
+
+    ViewData["Title"] =localizer["Login"];
+}
+
+
+<div class="row " style="margin-bottom:20px;">
+
+    <div class="col-xl-4 col-lg-4 col-md-5 col-sm-8 col-xs-12">
+
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-12" style="display:none">
+        <img src="~/images/journal_logo_no_bg.png" class="img-responsive align-middle"  />
+
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-3 col-sm-2 col-xs-12 ">
+
+    </div>
+</div>
+
+<div class="row ">
+    <div class="col-xl-4 col-lg-4 col-md-3 col-sm-2 col-xs-12">
+
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-12">
+        <ul class="list-group ">
+            <li class="list-group-item active">@localizer["Login"]  </li>
+            <li class="list-group-item login-style">
+
+                <form asp-action="Login" asp-route-returnUrl="@ViewData["ReturnUrl"]">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" placeholder=@localizer["Email or Mobile"] />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder=@localizer["Password"] />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox col-md-offset-1">
+                            @*  <label asp-for="RememberMe" class="control-label"></label>*@
+                            <input asp-for="RememberMe" />
+                            <span class="font-16 offset-1">
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                                </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@localizer["Login"]" class="btn btn-danger" />
+
+                    </div>
+                    <div class="form-group">
+                        <a asp-action="ForgotPassword" class="link-font-black">@localizer["Forgot Password"]</a>
+                    </div>
+                    <div class="form-group">
+                        <a asp-action="Register" class="link-font-black">@localizer["New Register"]</a>
+                    </div>
+                </form>
+
+            </li>
+            @*@if (Model.ExternalLogins.Count > 0)
+            {
+                <li class="list-group-item">
+                    <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
+                        <div>
+                            @foreach(var provider in Model.ExternalLogins)
+                            {
+                            <button type="submit" class="btn btn-primary"
+                                    name="provider" value="@provider.Name"
+                                    title="Login using your @provider.DisplayName provider">
+                               @localizer["Login With Google"]
+                                </button>
+                            }
+                        </div>
+                    </form>
+                </li>
+            }*@
+
+        </ul>
+    </div>
+    
+    <div class="col-xl-4 col-lg-4 col-md-3 col-sm-2 col-xs-12 ">
+        <br />
+        <br />
+      @*  <img src="~/images/Logo_t.png" class="img-responsive align-middle" />*@
+
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    $(document).ready(function () {
+        debugger
+        $("#Email").blur(function () {
+            debugger
+            var email = document.getElementById("Email");
+            var trimedText = email.value.trim();
+            email.value = trimedText;
+        });
+
+    })
+</script>
+}

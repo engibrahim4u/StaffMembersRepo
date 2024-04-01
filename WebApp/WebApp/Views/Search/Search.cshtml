@@ -1,0 +1,70 @@
+﻿@model SearchVM
+@{
+
+    ViewData["Title"] = "بحث";
+}
+<input asp-for="BaseUrl" type="hidden" />
+<div>
+    <h1 class="font-kawla main-widget">   البحث   بجزء من الاسم او الموبايل او الرقم القومي  </h1>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="form-group col-md-4">
+
+        <input type="text" maxlength="25" class="form-control" placeholder="  الموبايل او الاسم " id="txtSearch" />
+
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
+<div id="divWait" style="display:none" class="alert text-center">
+    <img src="~/Images/InternetSlowdown_Day.gif" style="width:100px;height:auto" />
+</div>
+<div id="StudentsList" style="display:none">
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+    <script>
+        $(document).ready(function () {
+            debugger
+            
+            $("#txtSearch").keyup(function () {
+                var txtbaseUrl = document.getElementById("BaseUrl");
+                var baseUrl = txtbaseUrl.value;
+                //alert(baseUrl);
+
+                var Id = $(this).val().trim();
+                debugger
+                if (Id.length > 1) {
+                    $("#divWait").show();
+                    $("#StudentsList").hide();
+
+                    $.ajax({
+                        type: "Post",
+                        contentType: "html",
+                        url: baseUrl+"/Search/SearchResult?id=" + Id, 
+                        //url: "/Takaful/Search/SearchResult?id=" + Id, //Takaful added tpo run on services/takaful
+
+                        success: function (response) {
+                            debugger
+                            $("#StudentsList").empty();
+                            $("#StudentsList").append(response);
+                            $("#StudentsList").show();
+                            $("#divWait").hide();
+                        }
+                    })
+                }
+                else {
+                    $("#StudentsList").hide();
+                }
+            });
+
+
+
+        });
+    </script>
+}

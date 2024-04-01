@@ -1,0 +1,126 @@
+﻿@model Setting
+
+@{
+    ViewData["Title"] = "اعدادات الموقع";
+}
+
+
+<h4>اعدادات الموقع</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrentAcademicYear" class="control-label"></label>
+                <input asp-for="CurrentAcademicYear" class="form-control" />
+                <span asp-validation-for="CurrentAcademicYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Available" /> @Html.DisplayNameFor(model => model.Available)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="StudentNewRequestAvailable" /> @Html.DisplayNameFor(model => model.StudentNewRequestAvailable)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="StudentUpadateAvailable" /> @Html.DisplayNameFor(model => model.StudentUpadateAvailable)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="placeAvailable" /> @Html.DisplayNameFor(model => model.placeAvailable)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="placeUpdateAvailable" /> @Html.DisplayNameFor(model => model.placeUpdateAvailable)
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="AdminAvailable" /> @Html.DisplayNameFor(model => model.AdminAvailable)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="AdminUpdateAvailable" /> @Html.DisplayNameFor(model => model.AdminUpdateAvailable)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotAvailableMessage" class="control-label"></label>
+                <input asp-for="NotAvailableMessage" class="form-control" />
+                <span asp-validation-for="NotAvailableMessage" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TrainingSupervisor" class="control-label"></label>
+                <input asp-for="TrainingSupervisor" class="form-control" />
+                <span asp-validation-for="TrainingSupervisor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExtraCertificatePrice" class="control-label"></label>
+                <input asp-for="ExtraCertificatePrice" class="form-control" />
+                <span asp-validation-for="ExtraCertificatePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="NationalIdImageRequired" /> @Html.DisplayNameFor(model => model.NationalIdImageRequired)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="PersonalPhotoRequired" /> @Html.DisplayNameFor(model => model.PersonalPhotoRequired)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="حفظ الاعدادات" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,85 @@
+﻿@model EMailMessagesVM
+
+@{
+    ViewData["Title"] = "اعدادات رسائل الايميل";
+}
+
+
+<h5 class="alert alert-info text-center">اعدادات رسائل الايميل</h5>
+
+<hr />
+@if(ViewBag.Updated!=null && ViewBag.Updated == true)
+            {
+                <h5 class="text-success text-center">تم الحفظ بنجاح</h5>
+            }
+<div class="row">
+    <div>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="JournalIdEncrypted" />
+            <input type="hidden" asp-for="Code" />
+            <input type="hidden" asp-for="Name" />
+
+
+
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TitleEn" class="control-label"></label>
+                <input asp-for="TitleEn" class="form-control" />
+                <span asp-validation-for="TitleEn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Msg" class="control-label"></label>
+                <textarea asp-for="Msg" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="Msg" class="text-danger"></span>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label asp-for="MsgEn" class="control-label"></label>
+                <textarea class="form-control" rows="10" asp-for="MsgEn"></textarea>
+                <span asp-validation-for="MsgEn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="SendEmail" /> @Html.DisplayNameFor(model => model.SendEmail)
+                    </label>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="حفظ " class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-primary">رجوع</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script src="~/js/jquery-te-1.4.0.min.js"></script>
+<link href="~/css/jquery-te-1.4.0.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+        $("textarea").jqte();
+    })
+</script>
+
+}

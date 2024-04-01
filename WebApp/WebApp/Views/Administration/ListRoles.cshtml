@@ -1,0 +1,55 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "CreateRole";
+}
+
+<h2>All Roles</h2>
+<a asp-action="CreateRole" asp-controller="Administration" class="btn btn-primary">اضافة صلاحية</a>
+
+@if (Model.Any())
+{
+    <table class="table table-responsive">
+        <tr>
+            <th>كود الصلاحية</th>
+            <th>اسم الصلاحية</th>
+
+            <th></th>
+        </tr>
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>@role.Id</td>
+
+                    <td>@role.Name</td>
+                    <td>
+                        <form method="post" asp-action="DeleteRole" asp-route-id="@role.Id">
+                            <a asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id" class="btn btn-primary">تعديل</a>
+                            <span style="display:none" id="confirmDeleteSpan_@role.Id" onclick="ConfirmDelete('@role.Id',false)">
+                                <span>هل انت متاكد من الحذف ؟</span>
+                                <button type="submit" class="btn btn-danger">نعم</button>
+                                <a href="#" class="btn btn-primary">لا</a>
+                            </span>
+                            <span id="deleteSpan_@role.Id" onclick="ConfirmDelete('@role.Id',true)">
+                                <a href="#" class="btn btn-danger">حذف</a>
+                            </span>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3 class="alert alert-danger text-center">No roles added</h3>
+
+
+}
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/js/CustomScript.js"></script>
+}
+

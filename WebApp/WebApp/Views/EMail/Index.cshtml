@@ -1,0 +1,38 @@
+﻿@model List<EMailMessagesVM>
+
+@{ 
+    int nr=0;
+    Pager pager = new Pager();
+    int pageNum = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNum = pager.CurrentPage;
+        nr = (pager.CurrentPage - 1) * pager.PageSize;
+    }
+}
+@*<partial name="_PagerPartial" model="@pager" />*@
+<div class="container">
+    <table class="table table-responsive">
+        <tr class="bg-primary">
+            <th class="text-center">#</th>
+            @*<th class="text-center">الكود</th>*@
+            <th class="text-center">الإسم</th>
+            <th class="text-center"></th>
+        </tr>
+        @foreach(var item in Model)
+            {
+            nr++;
+                <tr>
+                    <td class="text-center">@nr</td>
+                    @*<td class="text-center">@item.Code</td>*@
+                    <td >@item.Name</td>
+                    <td class="text-center">
+                    <a asp-action="Edit" asp-route-code="@item.Code" asp-route-id="@item.JournalIdEncrypted" class="btn btn-success">
+                    <span class="glyphicon glyphicon-pencil"></span>    
+                        </a> </td>
+                </tr>
+            }
+    </table>
+</div>
+<partial name="_PagerPartial" model="@pager" />

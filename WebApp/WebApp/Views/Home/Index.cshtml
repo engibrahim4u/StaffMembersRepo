@@ -1,0 +1,44 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = localizer["Home Page"];
+}
+
+
+
+<div class="container">
+
+    <partial name="_PartialEvents" model="Model.Events" />
+
+    <div class="row ">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 noOverFlow">
+
+            <partial name="_PartialNews" model="Model.News" />
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="mb10">
+
+                <h1 class="font-kawla main-widget">
+                    <span class="glyphicon glyphicon-record font-40B "></span>  @localizer["Events & Activities"]
+                </h1>
+                @*<partial name="_PartialLatestActivities" model="Model.EventActivities" />*@
+
+
+            </div>
+            <div class="noOverFlow">
+
+                <h1 class="font-kawla main-widget">  <span class="glyphicon glyphicon-folder-open font-40B "></span>  @localizer["New Issues"]</h1>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+@*@section _PartialPublishedResearchStatistics {
+    <div>
+        <partial name="_PartialPublishedResearchStatistics" model="Model.Numbers" />
+    </div>
+}*@

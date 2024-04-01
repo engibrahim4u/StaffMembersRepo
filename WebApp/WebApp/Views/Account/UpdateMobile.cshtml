@@ -1,0 +1,45 @@
+﻿@model MobileVM
+
+@{
+    ViewData["Title"] = localizer["Change Mobile"];
+
+}
+
+@if (ViewBag.Updated != null)
+{
+    <h3 class="alert alert-success text-center">@ViewBag.Updated</h3>
+}
+    <h4>@localizer["Change Mobile"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form asp-action="UpdateMobile">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label"></label>
+                <input asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="@localizer["Change"]" class="btn btn-primary" />
+                <a asp-action="UserProfile" class="btn btn-primary">@localizer["Cancel"]</a>
+
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+
+</div>
+
+<div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

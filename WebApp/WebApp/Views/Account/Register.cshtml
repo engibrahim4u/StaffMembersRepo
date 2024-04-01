@@ -1,0 +1,113 @@
+﻿@model RegisterVM
+
+@{
+
+    ViewData["Title"] = localizer["Register New User"];
+}
+
+<h4></h4>
+<hr />
+<div class="row">
+    @if (ViewBag.Created != null)
+    {
+        <div class="alert alert-success text-center">
+            <h4>@localizer["Account Successfuly Registerd"]</h4>
+            <a asp-action="Login" class="btn btn-link col-lg-offset-3">@localizer["Click her to Login"]</a>
+
+        </div>
+    }
+    else
+    {
+
+        <form asp-action="Register">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div asp-validation-summary="ModelOnly" class="text-danger col-md-10"></div>
+                <div class="col-md-1"></div>
+
+            </div>
+            <hr />
+            <div id="registerForm" class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <ul class="list-group">
+                        <li class="list-group-item active" id="RegisterStudent">@localizer["New Registration"] </li>
+
+                        <li class="list-group-item">
+
+                            <input type="hidden" asp-for="Id" />
+                            @*<div class="form-group">
+                                <label asp-for="RegisterType" class="control-label"></label>
+                                <select asp-for="RegisterType" class="form-control">
+                                    <option value="">@localizer["-----Select-----"]</option>
+                                    <option value="user">@localizer["User"]</option>
+
+                                </select>
+                                <span asp-validation-for="RegisterType" class="text-danger"></span>
+                            </div>*@
+                            <div class="form-group">
+                                <label asp-for="FullName" class="control-label"></label>
+                                <input asp-for="FullName" class="form-control font-20" placeholder="@localizer["Full Name"]" />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control font-20" placeholder="@localizer["Email"]" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Mobile" class="control-label"></label>
+                                <input asp-for="Mobile" class="form-control font-20" placeholder="@localizer["Mobile"]" />
+                                <span asp-validation-for="Mobile" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" type="password" class="form-control font-20" placeholder="@localizer["Password"]" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ConfirmPassword" class="control-label"></label>
+                                <input asp-for="ConfirmPassword" type="password" class="form-control font-20" placeholder="@localizer["Confirm Password"]" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="@localizer["Register"]" class="btn btn-danger" />
+                            </div>
+                            <div class="form-group">
+                                <a asp-action="Login">@localizer["Already I have an account"]</a>
+
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </form>
+    }
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            debugger
+            $("#Email").blur(function () {
+                debugger
+                var email = document.getElementById("Email");
+                var trimedText = email.value.trim();
+                email.value = trimedText;
+            });
+
+            $("#Mobile").blur(function () {
+                debugger
+                var inputText = document.getElementById("Mobile");
+                var inputTextValue = inputText.value.trim();
+                inputText.value = inputTextValue;
+            });
+
+        })
+    </script>
+}

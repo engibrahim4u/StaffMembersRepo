@@ -1,0 +1,128 @@
+﻿@model NewsVM
+
+@{
+    ViewData["Title"] = "اضافة حدث";
+}
+
+<h2>اضافة خبر</h2>
+@if (ViewBag.Updated != null && ViewBag.Updated == true)
+{
+    <h4 class="text-success text-center">تم الاضافة</h4>
+    <a asp-action="Add" class="btn btn-primary">اضافة اخر</a>
+
+}
+else
+{
+
+    <hr />
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Add" enctype="multipart/form-data">
+                <input asp-for="JournalId" type="hidden" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Header" class="control-label"></label>
+                    <input asp-for="Header" class="form-control" />
+                    <span asp-validation-for="Header" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HeaderEn" class="control-label"></label>
+                    <input asp-for="HeaderEn" class="form-control" />
+                    <span asp-validation-for="HeaderEn" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DisplayInHome" class="control-label"></label>
+                    <input asp-for="DisplayInHome" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="DisplayInHomeEn" class="control-label"></label>
+                    <input asp-for="DisplayInHomeEn" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Order" class="control-label"></label>
+                    <input asp-for="Order" class="form-control" />
+                    <span asp-validation-for="Order" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Content" class="control-label"></label>
+                    <textarea asp-for="Content" class="form-control" rows="10"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ContentEn" class="control-label"></label>
+                    <textarea asp-for="ContentEn" class="form-control" rows="10"></textarea>
+                    <span asp-validation-for="ContentEn" class="text-danger"></span>
+                </div>
+                <div class="row text-center">
+                    <img id="Image1" src="" alt=""class="img-responsive" style="display: none" />
+                </div>
+                <div class="row form-group">
+                    <label asp-for="ImageFile" class="control-label"></label>
+                    <br />
+                    <div class="custom-file  col-md-7">
+                        <input asp-for="ImageFile" class="form-control custom-file-input">
+                        <label class="custom-file-label" hidden>اختر ملف...</label>
+                    </div>
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+
+                <div class="row form-group">
+                    <input type="submit" value="اضافة" class="btn btn-danger" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+<div>
+    <a asp-action="Index" class="link-font-primary">رجوع</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/jquery-te-1.4.0.min.js"></script>
+    <link href="~/css/jquery-te-1.4.0.css" rel="stylesheet" />
+    @*<script>
+        $(document).ready(function () {
+            $("textarea").jqte();
+        })
+    </script>*@
+    <script>
+        $(function () {
+            $('#ImageFile').change(function () {
+                $('#Image1').hide();
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#Image1').show();
+                    $('#Image1').attr("src", e.target.result);
+                }
+                reader.readAsDataURL($(this)[0].files[0]);
+            });
+
+            $('.custom-file-input').on("change", function () {
+                debugger
+                var extension = $(this).val().split('.').pop().toLowerCase();
+                var validFileExtensions = ['jpg', 'png', 'jpeg'];
+                if ($.inArray(extension, validFileExtensions) == -1) {
+                    $('#fileErrorMessage').text("مسموح فقط ملفات png,jpg").show();
+                    alert("مسموح فقط ملفات png,jpg");
+                    $(this).replaceWith($(this).val('').clone(true));
+                }
+                else {
+                    if ($(this).get(0).files[0].size > (1024 * 1024)) {
+                        $('#fileErrorMessage').text("حجم الملف كبير اقصى حجم للملف 1MB").show();
+                        alert("حجم الملف كبير اقصى حجم للملف 1MB");
+                        $(this).replaceWith($(this).val('').clone(true));
+                    }
+                    else {
+                        $('#fileErrorMessage').text('').hide();
+                    }
+                }
+            });
+            $("textarea").jqte();
+
+
+        });
+    </script>
+}

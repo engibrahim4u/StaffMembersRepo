@@ -1,0 +1,41 @@
+﻿@model EventsVM
+@using System.Globalization
+@{
+    string header = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? Model.Header : Model.HeaderEn;
+    string details = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? Model.Content : Model.ContentEn;
+
+}
+<div class="container">
+    <h1 class="font-kawla main-widget">@header</h1>
+    <h5>@Model.CDate.ToString("dd-MM-yyyy")</h5>
+    @Html.Raw(System.Web.HttpUtility.HtmlDecode(details))
+    @if (!string.IsNullOrEmpty(Model.Image))
+    {
+        <img class="img-responsive" src="~/EventActivityImages/@Model.Image" />
+    }
+
+
+</div>
+
+@if (Model.EventImages.Any())
+{
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <ul class="list-group">
+                @foreach (var item in Model.EventImages)
+                {
+                    <li class="list-group-item">
+                        <img src="~/EventOtherImages/@item.FileName" class="img-responsive" />
+                    </li>
+
+
+                }
+
+            </ul>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+}
+<a asp-action="ActivitiesList" asp-controller="Home" class="btn btn-primary">@localizer["Return"]</a>

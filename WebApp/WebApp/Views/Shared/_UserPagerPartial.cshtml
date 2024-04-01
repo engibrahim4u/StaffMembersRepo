@@ -1,0 +1,49 @@
+﻿@model UserPager
+@{ 
+}
+<div class="container">
+    @if (Model.TotalPages > 1)
+    {
+        <ul class="pagination justify-content-end">
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="page-item ">
+                    <a class="page-link" asp-controller="@Model.ControllerName" asp-action="@Model.ActionName" asp-route-pag="1" 
+                       asp-route-Name="@Model.Name" asp-route-RoleName="@Model.RoleName" asp-route-Active="@Model.Active" asp-route-id="@Model.id"
+                       asp-route-author="@Model.Author"    asp-route-research="@Model.Research"  asp-route-date="@Model.Date" 
+                        asp-route-stage="@Model.StageId"  asp-route-field="@Model.FieldId"  asp-route-unread="@Model.UnRead" > @localizer["First"]</a>
+                </li>
+                <li class="page-item ">
+                    <a class="page-link" asp-controller="@Model.ControllerName" asp-action="@Model.ActionName" asp-route-pag="@(Model.CurrentPage-1)" 
+                       asp-route-Name="@Model.Name" asp-route-RoleName="@Model.RoleName" asp-route-Active="@Model.Active" asp-route-id="@Model.id" 
+                       asp-route-author="@Model.Author"    asp-route-research="@Model.Research"  asp-route-date="@Model.Date" 
+                        asp-route-stage="@Model.StageId"  asp-route-field="@Model.FieldId"  asp-route-unread="@Model.UnRead" >@localizer["Previous"]</a>
+                </li>
+            }
+            @for (var pag = Model.StartPage; pag <= Model.EndPage; pag++)
+            {
+                <li class="page-item @(pag==Model.CurrentPage ? "active" :"")">
+                    <a class="page-link" asp-controller="@Model.ControllerName" asp-action="@Model.ActionName" asp-route-pag="@pag" asp-route-Name="@Model.Name" 
+                       asp-route-RoleName="@Model.RoleName" asp-route-Active="@Model.Active" asp-route-id="@Model.id" 
+                       asp-route-author="@Model.Author"    asp-route-research="@Model.Research"  asp-route-date="@Model.Date" 
+                        asp-route-stage="@Model.StageId"  asp-route-field="@Model.FieldId"  asp-route-unread="@Model.UnRead" >@pag</a>
+                </li>
+            }
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li class="page-item ">
+                    <a class="page-link" asp-controller="@Model.ControllerName" asp-action="@Model.ActionName" asp-route-pag="@(Model.CurrentPage+1)" 
+                       asp-route-Name="@Model.Name" asp-route-RoleName="@Model.RoleName" asp-route-Active="@Model.Active" asp-route-id="@Model.id" 
+                       asp-route-author="@Model.Author"    asp-route-research="@Model.Research"  asp-route-date="@Model.Date" 
+                        asp-route-stage="@Model.StageId"  asp-route-field="@Model.FieldId"  asp-route-unread="@Model.UnRead" ><span class="glyphicon next"></span>@localizer["Next"]</a>
+                </li>
+                <li class="page-item ">
+                    <a class="page-link" asp-controller="@Model.ControllerName" asp-action="@Model.ActionName" asp-route-pag="@(Model.TotalPages)" 
+                       asp-route-Name="@Model.Name" asp-route-RoleName="@Model.RoleName" asp-route-Active="@Model.Active" asp-route-id="@Model.id" 
+                       asp-route-author="@Model.Author"    asp-route-research="@Model.Research"  asp-route-date="@Model.Date" 
+                        asp-route-stage="@Model.StageId"  asp-route-field="@Model.FieldId"  asp-route-unread="@Model.UnRead" >@localizer["Last"]</a>
+                </li>
+            }
+        </ul>
+    }
+</div>

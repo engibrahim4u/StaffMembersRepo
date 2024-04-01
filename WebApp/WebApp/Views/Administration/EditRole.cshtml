@@ -1,0 +1,53 @@
+﻿@model RoleVM
+
+@{
+    ViewData["Title"] = "تعديل بيانات الصلاحية";
+}
+
+<h2>تعديل بيانات الصلاحية</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditRole">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label"></label>
+                <input asp-for="ID" class="form-control" disabled />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="تعديل" class="btn btn-primary" />
+                <a asp-action="ListRoles" asp-controller="Administration" class="btn btn-primary">الغاء</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    @if (Model.Users.Any())
+    {
+        <ul class="list-group">
+            @foreach (var user in Model.Users)
+            {
+                <li class="list-group-item">@user</li>
+            }
+            <li class="list-group-item">
+                <a asp-action="EditUsersInRole" asp-controller="Administration" asp-route-roleId="@Model.ID" class="btn btn-primary">اضافة/حذف مستخدم</a>
+            </li>
+        </ul>
+    }
+
+</div>
+
+<div>
+    <a asp-action="ListRoles">قائمة الصلاحيات</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

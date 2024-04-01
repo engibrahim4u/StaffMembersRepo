@@ -1,0 +1,39 @@
+﻿@model List<UserPlaceVM>
+@{
+    ViewData["Title"] = "حذف / اضافة مسؤول عن  للكلية ";
+    var placeId = ViewBag.placeId;
+}
+
+<h2>حذف / اضافة مسؤول   @ViewBag.PlaceName</h2>
+<form method="post">
+    <table class="table table-responsive">
+        <tr>
+            <th>البريد الالكتروني</th>
+            <th>الاسم</th>
+
+
+        </tr>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <input type="hidden" asp-for="@Model[i].UserId" />
+                            <input type="hidden" asp-for="@Model[i].UserName" />
+                            <input type="checkbox" asp-for="@Model[i].IsSelected" />
+                            <label asp-for="@Model[i].IsSelected">@Model[i].UserName</label>
+                        </div>
+                    </td>
+                    <td>
+                        @Model[i].Name
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="تحديث" class="btn btn-primary" />
+    <a asp-action="CategoryPlacesUser" asp-route-id="@placeId" class="btn btn-primary">الغاء</a>
+
+</form>

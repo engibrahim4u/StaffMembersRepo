@@ -1,0 +1,181 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 150px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+
+    .btn50px{
+        width:50px;
+    }
+}
+.navbar-inverse {
+    background: #334761;
+}
+    .navbar-inverse .navbar-nav > li > a {
+        /* font-size: 22px;*/
+        font-family: 'Almadinah2';
+        font-size: 36px;
+        color: white;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+            /*font-size: 22px;*/
+            font-family: 'Almadinah2';
+            font-size: 36px;
+            color: #acb7af;
+        }
+
+.dropdown-menu > li > a {
+    /* font-size: 17px;*/
+    font-family: 'Almadinah2';
+    font-size: 30px;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background: #334761;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #1f1d1d;
+}
+
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #334761;
+    border-color: #334761;
+}
+
+.navbar-brand {
+    padding: 0px 10px;
+}
+
+.navbar {
+    position: fixed;
+    min-height: 80px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 30px 15px;
+
+}
+/*.navbar {
+    position: fixed;
+    min-height: 135px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 60px 15px;
+}*/
+
+.btn {
+    /*font-size:18px;*/
+    font-family: 'Almadinah1';
+    font-size: 28px;
+}
+
+span {
+    font-size: 18px;
+    font-family: 'Almadinah1';
+}
+
+a:hover, a:focus {
+    color: #334761;
+    text-decoration: none;
+}
+th {
+    text-align: center;
+    font-family: 'Almadinah3';
+    font-size: 25px;
+}
+td {
+    font-family: 'Almadinah3';
+    font-size: 25px;
+}
+label {
+    font-family: 'Almadinah3';
+    font-size: 28px;
+    color: #334761;
+}
+
+.form-control {
+    font-family: 'Almadinah2';
+    font-size: 28px;
+    height:40px;
+}
+h1 {
+    font-family: 'Almadinah3';
+    font-size:50px;
+}
+h2 {
+    font-family: 'Almadinah3';
+    font-size: 45px;
+}
+h3 {
+    font-family: 'Almadinah3';
+    font-size: 35px;
+}
+h4 {
+    font-family: 'Almadinah3';
+    font-size: 28px;
+}
+h5 {
+    font-family: 'Almadinah3';
+    font-size: 25px;
+}
+h6 {
+    font-family: 'Almadinah3';
+    font-size: 20px;
+}
+
+p {
+    font-family: 'Almadinah3';
+    font-size: 25px;
+}
+
+input[type="file"] {
+    font-size: 15px;
+}
+.fontTimes{
+    font-family:'Times New Roman', Times, serif;
+}
+.userName-font{
+    font-size:18px;
+}

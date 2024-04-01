@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = localizer["Computer Administration"];
+}
+
+@using System.Globalization
+
+<div class="container">
+    <div class="main-image-inside">
+        <img src="~/EventImages/journal_logo_no_bg.png" style="max-width:100%" />
+    </div>
+    <h1 class="font-kawla main-widget">
+        <span class="glyphicon glyphicon-folder-open font-40B "></span> @localizer["Computer Administration"]
+    </h1>
+
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item" id="bodyData">
+                @if (CultureInfo.CurrentCulture.TextInfo.IsRightToLeft)
+                {
+                    <div>
+                        <ul class="font-18">
+                            <li>
+                                <h4>
+                                    عقد دورات تدريبية لتطبيقات الحاسب الألي في مختلف المجالات.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    تقديم الاستشارات في مجال تكنولوجيا المعلومات.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    اعداد البرامج التدريبية المتقدمة التي تتناسب مع متطلبات العمل داخل مختلف القطاعات.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    تصميم برامج صيانة أجهزة الحاسب الألي ومستلزماته.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    تصميم  قواعد البيانات وتحليلها وتقديم المؤشرات المطلوبة لرفع كفاءة العمل.
+                                </h4>
+                            </li>
+                        </ul>
+
+                    </div>
+                }
+                else
+                {
+            <div>
+                <ul class="font-18">
+                    <li>
+                        <h4>
+                            عقد دورات تدريبية لتطبيقات الحاسب الألي في مختلف المجالات.
+                        </h4>
+                    </li>
+                    <li>
+                        <h4>
+                            تقديم الاستشارات في مجال تكنولوجيا المعلومات.
+                        </h4>
+                    </li>
+                    <li>
+                        <h4>
+                            اعداد البرامج التدريبية المتقدمة التي تتناسب مع متطلبات العمل داخل مختلف القطاعات.
+                        </h4>
+                    </li>
+                    <li>
+                        <h4>
+                            تصميم برامج صيانة أجهزة الحاسب الألي ومستلزماته.
+                        </h4>
+                    </li>
+                    <li>
+                        <h4>
+                            تصميم  قواعد البيانات وتحليلها وتقديم المؤشرات المطلوبة لرفع كفاءة العمل.
+                        </h4>
+                    </li>
+                </ul>
+
+            </div>
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,221 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    /*padding-top: 50px;*/
+/*    padding-bottom: 20px;*/
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+
+    .btn50px{
+        width:50px;
+    }
+}
+.navbar-inverse {
+    background: #337ab7;
+}
+    .navbar-inverse .navbar-nav > li > a {
+        font-size: 18px;
+        color: white;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+            font-size: 18px;
+            color: black;
+        }
+
+.dropdown-menu > li > a {
+    font-size: 17px;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background: #337ab7;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #1f1d1d;
+}
+.btn150px {
+    width: 150px;
+}
+
+a {
+    color: #9e9e9e;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    z-index: 2;
+    color: #fff;
+    background-color: #5bb5d7;
+    border-color: #5bb5d7;
+    font-size: 19px;
+}
+
+.list-group-item-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    font-size: 19px;
+}
+.font-20{
+    font-size:20px;
+}
+.font-40 {
+    font-size: 40px;
+}
+.font-16 {
+    font-size: 16px;
+}
+.font-18 {
+    font-size: 18px;
+}
+.font-18B {
+    font-size: 18px;
+    font-weight:bold;
+}
+.font-16B {
+    font-size: 16px;
+    font-weight: bold;
+}
+.bg-kawla-1 {
+    background: #334761;
+    color:white;
+    
+}
+.btn-empty {
+    color: #fff;
+    background-color: #fff;
+    border-color: #fff;
+}
+    .btn-empty:hover {
+        color: #fff;
+        background-color: #fff;
+        border-color: #fff;
+    }
+
+.bg-kawla-unread-messages {
+    background: #0a42f8;
+    color: white;
+}
+.font-kawla {
+    color: #334761;
+}
+.link-font-black{
+    color:#000000;
+    font-size:15px;
+}
+.link-font-primary {
+    color: #4800ff;
+    font-size: 15px;
+}
+.link-font-success {
+    color: darkgreen;
+    font-size: 15px;
+}
+.link-font-brown {
+    color: saddlebrown;
+    font-size: 15px;
+}
+.link-font-orangered {
+    color: orangered;
+    font-size: 15px;
+}
+.font-white{
+    color:white;
+}
+* {
+    /* font-family: 'Almadinah2';
+    font-size: 36px;*/
+    /*    font-family: almadinah1light, Tahoma;
+    font-family: almadinah1light, Tahoma;
+*/
+    /*font-family: almadinah1light, Tahoma;*/
+    font-family: Tahoma ;
+    /*  font-family: "JF Flat", Tahoma !important;*/
+    /*font-family:'Times New Roman', 'Droid Arabic Kufi', sans-serif;*/
+}
+
+.font-36 {
+    font-size: 36px;
+}
+
+.font-40B {
+    font-size: 40px;
+    font-weight: bold;
+}
+.font-40Italic {
+    font-size: 40px;
+    font-weight: bold;
+    font-style:italic;
+}
+/*.divBg {
+    background-image: url('../images/Background.png');
+    background-repeat: repeat-y;*/ /* for vertical repeat */
+    /*background-repeat: repeat-x;*/ /* for horizontal repeat */
+/*}*/
+body {
+    background-image: url('../images/Background2.png');
+    /*background-repeat: repeat-y;*/ /* for vertical repeat */
+    background-repeat: repeat; /* for horizontal repeat */
+}
+.boxEditorial{
+    background-color:white;
+    border-radius:25px;
+    margin-top:15px;
+    height:300px;
+}
+
+.boxIssueList {
+    background-color: white;
+    border-radius: 25px;
+    margin-top: 15px;
+    border:solid;
+    border-color:burlywood;
+    padding:25px 55px 25px 25px;
+}
+
+.boxIssueCount {
+    background-color: white;
+    border-radius: 25px;
+    margin: 15px 15px 15px 15px;
+    border: solid;
+    border-color: burlywood;
+    padding: 25px 55px 25px 25px;
+}
+
+.boxLatestIssue {
+    background-color: white;
+    border-radius: 25px;
+    margin: 15px 15px 15px 15px;
+    border: solid;
+    border-color:whitesmoke;
+    padding: 25px 55px 25px 25px;
+}

@@ -1,0 +1,54 @@
+﻿@model List<UserPlaceListVM>
+@{
+    ViewData["Title"] = "Places User";
+    var PlaceId = ViewBag.Placed;
+}
+<div class="container" style="margin-top:10px;">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form method="post" id="frm">
+                <select name="ddlPlace" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Places, "Id", "Name",PlaceId))"
+                        onchange='javascript: document.getElementById("frm").submit();'>
+                </select>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+</div>
+<h4 class="alert alert-info text-center"> المسؤولين عن الكليات @ViewBag.PlaceName</h4>
+
+@if (Model.Any())
+{
+    <table class="table table-responsive">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <th>@Model[i].PlaceName</th>
+                <th>
+                    @if (@Model[i].Users.Any())
+                    {
+                        @foreach (var user in @Model[i].Users)
+                        {
+                            <p>@user</p>
+                        }
+                    }
+                    else
+                    {
+                        <span class="text-danger">لا يوجد مسئول للكلية</span>
+                    }
+
+                </th>
+                <th>
+                    <div class="form-group">
+                        <a asp-action="EditPlaceUsers" asp-route-categoryId="@PlaceId" asp-route-placeId="@Model[i].PlaceId" asp-controller="Administration" class="btn btn-primary">اضافة/حذف مسؤول</a>
+                    </div>
+                </th>
+
+            </tr>
+        }
+    </table>
+
+}

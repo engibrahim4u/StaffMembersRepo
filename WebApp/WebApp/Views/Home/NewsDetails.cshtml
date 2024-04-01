@@ -1,0 +1,16 @@
+﻿@model NewsVM
+@using System.Globalization
+@{ 
+    string header = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? Model.Header : Model.HeaderEn;
+    string details = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? Model.Content : Model.ContentEn;
+
+}
+<div class="container">
+    <h1 class="font-kawla main-widget">@header</h1>
+    <h5>@Model.CDate.ToString("dd-MM-yyyy")</h5>
+            @Html.Raw(System.Web.HttpUtility.HtmlDecode(details))
+
+            <img class="img-responsive" src="~/NewsImages/@Model.Image" />
+ 
+
+</div>

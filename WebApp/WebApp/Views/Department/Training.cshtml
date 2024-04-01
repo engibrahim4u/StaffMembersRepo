@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = localizer["Training Administration"];
+}
+
+@using System.Globalization
+
+<div class="container">
+    <div class="main-image-inside">
+        <img src="~/EventImages/journal_logo_no_bg.png" style="max-width:100%" />
+    </div>
+    <h1 class="font-kawla main-widget">
+        <span class="glyphicon glyphicon-folder-open font-40B "></span> @localizer["Training Administration"]
+    </h1>
+
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item" id="bodyData">
+                @if (CultureInfo.CurrentCulture.TextInfo.IsRightToLeft)
+                {
+                    <div>
+                        <ul class="font-18">
+                            <li>
+                                <h4>
+                                    توجيه الاهتمام بتنمية وتطوير الموارد البشرية.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    توفير الكوادر القادرة على دفع عجلة العمل نحو تحقيق درجات عالية من الكفاءة في الأداء والنجاح في تحقيق الأهداف بما يساهم في تحقيق تنمية عامة لوطننا الحبيب وتماشيا مع رؤية مصر 2030.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    اقامة برامج تدريبية وتصميم برامج خاصة طبقاً لاحتياجات تدريبية محددة لأي جهه عامة أو خاصة أو المجتمع المدني.
+                                </h4>
+                            </li>
+                           
+                        </ul>
+
+                    </div>
+                }
+                else
+                {
+            <div>
+                <ul class="font-18">
+                    <li>
+                        <h4>
+                            توجيه الاهتمام بتنمية وتطوير الموارد البشرية.
+                        </h4>
+                    </li>
+                    <li>
+                        <h4>
+                            توفير الكوادر القادرة على دفع عجلة العمل نحو تحقيق درجات عالية من الكفاءة في الأداء والنجاح في تحقيق الأهداف بما يساهم في تحقيق تنمية عامة لوطننا الحبيب وتماشيا مع رؤية مصر 2030.
+                        </h4>
+                    </li>
+                    <li>
+                        <h4>
+                            اقامة برامج تدريبية وتصميم برامج خاصة طبقاً لاحتياجات تدريبية محددة لأي جهه عامة أو خاصة أو المجتمع المدني.
+                        </h4>
+                    </li>
+
+                </ul>
+
+            </div>
+
+                }
+            </li>
+        </ul>
+    </div>
+</div>

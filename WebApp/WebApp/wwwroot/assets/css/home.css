@@ -1,0 +1,55 @@
+@media(max-width: 991px) {
+    .navbar-brand {
+        font-size: unset !important;
+    }
+    .signup {
+        left: unset !important;
+        position: unset !important;
+    }
+}
+@media (min-width: 1200px) {
+    header.masthead h1 {
+        font-size: 3rem;
+    }
+}
+a {
+    white-space: nowrap;
+}
+
+#mainNav .container {
+    margin-left: 2%;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+    padding-right: 0;
+    padding-top: 5px;
+}
+
+.navbar-brand {
+    /* color: white; */
+    /* text-shadow: 2px 2px 2px black; */
+    font-size: xx-large;
+}
+
+#navbarResponsive > .navbar-nav {
+    margin-left: 2% !important;
+}
+
+.signup {
+    left: 60%;
+    position: relative;
+}
+
+header.masthead {
+    background-position: top;
+    /* background-size: 1600px 800px; */
+}
+
+    header.masthead .container {
+        padding-top: 20%;
+    }
+
+.about-text {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: large;
+}

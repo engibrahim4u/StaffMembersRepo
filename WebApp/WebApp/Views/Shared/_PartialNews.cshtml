@@ -1,0 +1,75 @@
+﻿@model List<NewsVM>
+@using System.Globalization
+@{
+    string active= "active";
+    string title;
+    bool display;
+    int nr = 0;
+    int totalNews = Model.Count - 1;
+}
+@if (Model.Any())
+{
+    <h1 class="font-kawla main-widget">  <span class="glyphicon glyphicon-list-alt font-40B "></span>  @localizer["Latest News"]</h1>
+
+
+    <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="4000">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+            @for (int x = 1; x <= totalNews; x++)
+            {
+                <li data-target="#myCarousel2" data-slide-to="@x"></li>
+            }
+            @*<li data-target="#myCarousel2" data-slide-to="1"></li>
+        <li data-target="#myCarousel2" data-slide-to="2"></li>*@
+        </ol>
+        <div class="carousel-inner" role="listbox">
+
+
+
+
+            @foreach (var item in Model)
+            {
+                nr++;
+
+
+                title = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? item.Header : item.HeaderEn;
+                display = CultureInfo.CurrentCulture.TextInfo.IsRightToLeft ? item.DisplayInHome : item.DisplayInHomeEn;
+
+                if (string.IsNullOrEmpty(title) || !display || nr > 10) continue;
+
+                if (nr > 1) active = "";
+                <div class="item @active">
+                    <div class="">
+                        <a asp-action="NewsDetails" asp-controller="Home" asp-route-id="@item.Id">
+                            <img src="~/NewsImages/@item.Image" class="img-responsive newsImageHeightHome" alt="@title" />
+
+                            <h3 class="font-kawla">@title</h3>
+                        </a>
+                    </div>
+
+                </div>
+
+            }
+
+
+            <a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+        <div class="text-left-im mb50">
+
+
+
+            <a asp-action="NewsList" asp-controller="Home" class="link-font-brown font-18B">
+                <span class="glyphicon glyphicon-eye-open font-20 "></span>  @localizer["All News"]
+            </a>
+
+
+        </div>
+        }

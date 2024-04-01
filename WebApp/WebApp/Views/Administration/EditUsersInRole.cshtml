@@ -1,0 +1,35 @@
+﻿@model List<UserRoleVM>
+@{
+    ViewData["Title"] = "EditUsersInRole";
+    var roleId = ViewBag.roleId;
+}
+
+<h2>Edit Users In Role</h2>
+<form method="post">
+    <table class="table table-responsive">
+        <tr>
+            <th>Role Id</th>
+            <th>Role Name</th>
+
+            <th></th>
+        </tr>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                            <input type="hidden" asp-for="@Model[i].UserId" />
+                            <input type="hidden" asp-for="@Model[i].UserName" />
+                            <input type="checkbox" asp-for="@Model[i].IsSelected" />
+                            <label asp-for="@Model[i].IsSelected">@Model[i].UserName</label>
+                        </div>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="تحديث" class="btn btn-primary" />
+    <a asp-action="EditRole" asp-route-id="@roleId" class="btn btn-primary">الغاء</a>
+
+</form>

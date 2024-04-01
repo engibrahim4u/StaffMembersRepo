@@ -1,0 +1,139 @@
+﻿@model EventImageVM
+
+@{
+    ViewData["Title"] = "اضافة صور";
+    int nr = 0;
+}
+
+<h1 class="alert alert-info text-center">اضافة صور </h1>
+<h1 class="font-kawla main-widget">@Model.EventPageName </h1>
+
+@if (ViewBag.Updated != null && ViewBag.Updated == true)
+{
+    <h4 class="text-success text-center">تم الاضافة</h4>
+
+}
+
+
+<hr />
+<div class="row text-center">
+    <img id="Image1" src="" alt="" class="img-responsive" style="display: none" />
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="AddEventImage" enctype="multipart/form-data">
+            <input asp-for="EventId" type="hidden" />
+            <input asp-for="Category" type="hidden" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="row form-group">
+                <label asp-for="File" class="control-label"></label>
+                <br />
+                <div class="custom-file  col-md-7">
+                    <input asp-for="File" class="form-control custom-file-input">
+                    <label class="custom-file-label" hidden>اختر ملف...</label>
+                </div>
+                <span asp-validation-for="File" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order" class="control-label"></label>
+                <input asp-for="Order" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+            <div class="row form-group">
+                <input type="submit" value="اضافة" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index" class="link-font-primary">رجوع</a>
+</div>
+@if (Model.EventImages.Any())
+{
+    <h5 class="alert alert-info text-center">
+        قائمة الصور
+    </h5>
+    <table class="table table-responsive">
+        <tr>
+            <th>الترتيب</th>
+            <th>الصورة</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.EventImages)
+        {
+            nr++;
+            <tr>
+                <td>@item.Order</td>
+                <td>
+                    <img src="~/EventOtherImages/@item.FileName" class="img-responsive" />
+                </td>
+                <td>
+                    <form method="post" asp-action="DeleteEventImage" asp-controller="EventActivity" asp-route-id="@item.Id" asp-route-eventId="@item.EventId" asp-route-category="@item.Category">
+
+
+
+
+                        <span style="display:none" id="confirmDeleteSpan_@nr" onclick="ConfirmDelete('@nr',false)">
+                            <span>تأكيد الحذف؟</span>
+                            <button type="submit" class="btn btn-danger">نعم</button>
+                            <a href="#" class="btn btn-primary">لا</a>
+                        </span>
+                        <span id="deleteSpan_@nr" onclick="ConfirmDelete('@nr',true)">
+                            <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                        </span>
+
+                    </form>
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/CustomScript.js"></script>
+    <script>
+        $(function () {
+            $('#File').change(function () {
+                $('#Image1').hide();
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#Image1').show();
+                    $('#Image1').attr("src", e.target.result);
+                }
+                reader.readAsDataURL($(this)[0].files[0]);
+            });
+
+            $('.custom-file-input').on("change", function () {
+                debugger
+                var extension = $(this).val().split('.').pop().toLowerCase();
+                var validFileExtensions = ['jpg', 'png', 'jpeg'];
+                if ($.inArray(extension, validFileExtensions) == -1) {
+                    $('#fileErrorMessage').text("مسموح فقط ملفات png,jpg").show();
+                    alert("مسموح فقط ملفات png,jpg");
+                    $(this).replaceWith($(this).val('').clone(true));
+                }
+                else {
+                    if ($(this).get(0).files[0].size > (1024 * 1024)) {
+                        $('#fileErrorMessage').text("حجم الملف كبير اقصى حجم للملف 1MB").show();
+                        alert("حجم الملف كبير اقصى حجم للملف 1MB");
+                        $(this).replaceWith($(this).val('').clone(true));
+                    }
+                    else {
+                        $('#fileErrorMessage').text('').hide();
+                    }
+                }
+            });
+
+
+
+        });
+    </script>
+}
